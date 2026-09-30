@@ -1,0 +1,1447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Mampi — Photography & Reels</title>
+
+  <meta
+    name="description"
+    content="Mampi Photography — Photoshoots, Reels and Short Videos. Capture your moments, create your story."
+  >
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Patrick+Hand&family=Playfair+Display:wght@600;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <style>
+
+    :root {
+      --cream: #fffaf3;
+      --paper: #f8eee4;
+      --pink: #f58ca4;
+      --pink-dark: #e85d7c;
+      --ink: #171416;
+      --muted: #70666a;
+      --white: #ffffff;
+      --line: rgba(23, 20, 22, 0.12);
+      --shadow: 0 18px 50px rgba(42, 24, 29, 0.12);
+      --radius: 28px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--cream);
+      color: var(--ink);
+      font-family: "DM Sans", sans-serif;
+      overflow-x: hidden;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    /* Grain */
+
+    .grain {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 50;
+      opacity: 0.035;
+
+      background-image: url(
+        "data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.7'/%3E%3C/svg%3E"
+      );
+    }
+
+    /* Navigation */
+
+    .nav {
+      position: fixed;
+      top: 16px;
+      left: 50%;
+      transform: translateX(-50%);
+
+      width: min(92%, 1050px);
+
+      z-index: 20;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      padding: 12px 14px 12px 20px;
+
+      background: rgba(255, 250, 243, 0.82);
+      backdrop-filter: blur(18px);
+
+      border: 1px solid rgba(255,255,255,0.75);
+      border-radius: 999px;
+
+      box-shadow: 0 8px 35px rgba(35,20,24,0.08);
+    }
+
+    .logo {
+      font-family: "Playfair Display", serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+    }
+
+    .logo span {
+      color: var(--pink-dark);
+    }
+
+    .navlinks {
+      display: flex;
+      gap: 24px;
+      font-size: 0.88rem;
+      font-weight: 600;
+    }
+
+    .navlinks a {
+      opacity: 0.72;
+      transition: 0.2s;
+    }
+
+    .navlinks a:hover {
+      opacity: 1;
+      color: var(--pink-dark);
+    }
+
+    .navbtn {
+      background: var(--ink);
+      color: white;
+
+      padding: 11px 18px;
+
+      border-radius: 999px;
+
+      font-size: 0.82rem;
+      font-weight: 700;
+    }
+
+    /* Hero */
+
+    .hero {
+      min-height: 100svh;
+
+      max-width: 1250px;
+      margin: auto;
+
+      padding: 140px 6% 70px;
+
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+
+      align-items: center;
+      gap: 55px;
+    }
+
+    .hero-copy {
+      position: relative;
+      z-index: 2;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+
+      margin-bottom: 22px;
+
+      font-size: 0.8rem;
+      font-weight: 700;
+
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .dot {
+      width: 9px;
+      height: 9px;
+
+      border-radius: 50%;
+
+      background: var(--pink-dark);
+
+      box-shadow: 0 0 0 7px #f9dce2;
+    }
+
+    h1 {
+      font-family: "Playfair Display", serif;
+
+      font-size: clamp(3.7rem, 8vw, 7rem);
+
+      line-height: 0.88;
+
+      letter-spacing: -0.055em;
+    }
+
+    h1 em {
+      font-family: "Patrick Hand", cursive;
+      font-style: normal;
+
+      color: var(--pink-dark);
+
+      letter-spacing: 0;
+    }
+
+    .hero-text {
+      max-width: 550px;
+
+      margin: 28px 0;
+
+      color: var(--muted);
+
+      font-size: 1.05rem;
+      line-height: 1.75;
+    }
+
+    .actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      gap: 8px;
+
+      padding: 15px 22px;
+
+      border-radius: 999px;
+
+      font-weight: 700;
+      font-size: 0.9rem;
+
+      transition: 0.25s;
+
+      cursor: pointer;
+
+      border: 1px solid var(--ink);
+    }
+
+    .btn.primary {
+      background: var(--ink);
+      color: white;
+    }
+
+    .btn.secondary {
+      background: transparent;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+
+      box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+    }
+
+    /* Hero Images */
+
+    .hero-visual {
+      position: relative;
+      min-height: 590px;
+    }
+
+    .photo-main {
+      position: absolute;
+
+      right: 2%;
+      top: 20px;
+
+      width: 74%;
+      height: 530px;
+
+      border-radius: 150px 150px 28px 28px;
+
+      overflow: hidden;
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(245,140,164,0.12),
+          rgba(0,0,0,0.18)
+        ),
+        url(
+          "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=1000&q=85"
+        )
+        center / cover;
+
+      box-shadow: var(--shadow);
+
+      transform: rotate(3deg);
+    }
+
+    .photo-small {
+      position: absolute;
+
+      left: 0;
+      bottom: 30px;
+
+      width: 43%;
+      height: 270px;
+
+      border-radius: 25px;
+
+      overflow: hidden;
+
+      border: 10px solid var(--cream);
+
+      box-shadow: var(--shadow);
+
+      background:
+        url(
+          "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=700&q=85"
+        )
+        center / cover;
+
+      transform: rotate(-7deg);
+    }
+
+    .sticker {
+      position: absolute;
+
+      right: 0;
+      bottom: 0;
+
+      width: 115px;
+      height: 115px;
+
+      padding: 18px;
+
+      display: grid;
+      place-items: center;
+
+      text-align: center;
+
+      border-radius: 50%;
+
+      background: var(--pink);
+
+      font-family: "Patrick Hand", cursive;
+
+      font-size: 1.15rem;
+
+      transform: rotate(8deg);
+
+      box-shadow: 0 12px 30px rgba(232,93,124,0.25);
+    }
+
+    /* Sections */
+
+    section {
+      max-width: 1250px;
+
+      margin: auto;
+
+      padding: 95px 6%;
+    }
+
+    .section-head {
+      max-width: 650px;
+
+      margin: 0 auto 48px;
+
+      text-align: center;
+    }
+
+    .section-kicker {
+      color: var(--pink-dark);
+
+      font-family: "Patrick Hand", cursive;
+
+      font-size: 1.5rem;
+    }
+
+    h2 {
+      margin: 8px 0 15px;
+
+      font-family: "Playfair Display", serif;
+
+      font-size: clamp(2.2rem, 5vw, 4rem);
+
+      line-height: 1;
+    }
+
+    .section-head p {
+      color: var(--muted);
+
+      line-height: 1.7;
+    }
+
+    /* Offer */
+
+    .offer {
+      position: relative;
+
+      display: grid;
+
+      grid-template-columns: 1fr 1fr;
+
+      gap: 40px;
+
+      align-items: center;
+
+      padding: 55px;
+
+      overflow: hidden;
+
+      background: var(--ink);
+
+      color: white;
+
+      border-radius: 36px;
+
+      box-shadow: var(--shadow);
+    }
+
+    .offer::before {
+      content: "";
+
+      position: absolute;
+
+      width: 330px;
+      height: 330px;
+
+      right: -100px;
+      top: -130px;
+
+      border-radius: 50%;
+
+      background: var(--pink);
+
+      filter: blur(70px);
+
+      opacity: 0.25;
+    }
+
+    .offer h2 {
+      position: relative;
+    }
+
+    .offer p {
+      color: #ddd;
+
+      line-height: 1.7;
+    }
+
+    .price {
+      margin: 18px 0;
+
+      color: var(--pink);
+
+      font-family: "Playfair Display", serif;
+
+      font-size: clamp(4rem, 8vw, 6rem);
+
+      line-height: 1;
+    }
+
+    .offer-list {
+      display: grid;
+
+      gap: 12px;
+
+      margin: 22px 0;
+    }
+
+    .offer-list div {
+      display: flex;
+      align-items: center;
+
+      gap: 12px;
+
+      font-weight: 600;
+    }
+
+    .check {
+      width: 30px;
+      height: 30px;
+
+      display: grid;
+      place-items: center;
+
+      border-radius: 50%;
+
+      background: #2a2527;
+
+      color: var(--pink);
+    }
+
+    .offer-note {
+      color: #f6b5c2;
+
+      font-family: "Patrick Hand", cursive;
+
+      font-size: 1.35rem;
+    }
+
+    .offer-card {
+      min-height: 310px;
+
+      display: flex;
+      flex-direction: column;
+
+      align-items: center;
+      justify-content: center;
+
+      padding: 30px;
+
+      text-align: center;
+
+      background: #f7e6df;
+
+      color: var(--ink);
+
+      border-radius: 28px;
+
+      transform: rotate(2deg);
+
+      box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+    }
+
+    .camera {
+      margin-bottom: 10px;
+
+      font-size: 3rem;
+    }
+
+    .offer-card strong {
+      font-family: "Playfair Display", serif;
+
+      font-size: 2.5rem;
+    }
+
+    .offer-card span {
+      margin-top: 8px;
+
+      color: #6f5c60;
+    }
+
+    /* Services */
+
+    .services {
+      display: grid;
+
+      grid-template-columns: repeat(3,1fr);
+
+      gap: 18px;
+    }
+
+    .service {
+      padding: 28px;
+
+      background: white;
+
+      border: 1px solid var(--line);
+
+      border-radius: 24px;
+
+      box-shadow: 0 8px 25px rgba(30,18,20,0.04);
+
+      transition: 0.25s;
+    }
+
+    .service:hover {
+      transform: translateY(-7px);
+
+      box-shadow: var(--shadow);
+    }
+
+    .icon {
+      margin-bottom: 18px;
+
+      font-size: 2rem;
+    }
+
+    .service h3 {
+      margin-bottom: 9px;
+
+      font-family: "Playfair Display", serif;
+
+      font-size: 1.45rem;
+    }
+
+    .service p {
+      color: var(--muted);
+
+      font-size: 0.92rem;
+
+      line-height: 1.65;
+    }
+
+    /* Gallery */
+
+    .gallery {
+      columns: 3 220px;
+
+      column-gap: 16px;
+    }
+
+    .shot {
+      position: relative;
+
+      overflow: hidden;
+
+      margin-bottom: 16px;
+
+      border-radius: 20px;
+
+      background: #eadbd4;
+
+      break-inside: avoid;
+    }
+
+    .shot img {
+      width: 100%;
+
+      transition: 0.45s;
+    }
+
+    .shot:hover img {
+      transform: scale(1.05);
+    }
+
+    .shot::after {
+      content: "";
+
+      position: absolute;
+
+      inset: 0;
+
+      pointer-events: none;
+
+      background:
+        linear-gradient(
+          transparent 65%,
+          rgba(0,0,0,0.35)
+        );
+    }
+
+    /* Why */
+
+    .why {
+      display: grid;
+
+      grid-template-columns: 1fr 1fr;
+
+      gap: 20px;
+    }
+
+    .why-card {
+      padding: 42px;
+
+      background: #f4e6df;
+
+      border-radius: 30px;
+    }
+
+    .why-card h3 {
+      margin-bottom: 15px;
+
+      font-family: "Playfair Display", serif;
+
+      font-size: 2rem;
+    }
+
+    .why-card p {
+      color: var(--muted);
+
+      line-height: 1.8;
+    }
+
+    .points {
+      display: grid;
+
+      grid-template-columns: 1fr 1fr;
+
+      gap: 12px;
+    }
+
+    .point {
+      padding: 24px;
+
+      background: white;
+
+      border: 1px solid var(--line);
+
+      border-radius: 20px;
+    }
+
+    .point b {
+      display: block;
+
+      margin-bottom: 7px;
+    }
+
+    .point span {
+      color: var(--muted);
+
+      font-size: 0.88rem;
+    }
+
+    /* CTA */
+
+    .cta {
+      position: relative;
+
+      overflow: hidden;
+
+      padding: 70px 30px;
+
+      text-align: center;
+
+      background: var(--pink);
+
+      border-radius: 36px;
+    }
+
+    .cta::before,
+    .cta::after {
+      content: "♡";
+
+      position: absolute;
+
+      color: white;
+
+      opacity: 0.35;
+
+      font-family: "Patrick Hand", cursive;
+
+      font-size: 8rem;
+    }
+
+    .cta::before {
+      left: 3%;
+      top: -25px;
+    }
+
+    .cta::after {
+      right: 3%;
+      bottom: -50px;
+    }
+
+    .cta h2,
+    .cta p,
+    .cta .btn {
+      position: relative;
+    }
+
+    .cta p {
+      max-width: 550px;
+
+      margin: 15px auto 28px;
+
+      color: #6e3845;
+
+      line-height: 1.7;
+    }
+
+    .cta .btn {
+      background: var(--ink);
+
+      color: white;
+
+      border-color: var(--ink);
+    }
+
+    /* Footer */
+
+    footer {
+      padding: 35px 6%;
+
+      text-align: center;
+
+      color: var(--muted);
+
+      font-size: 0.82rem;
+    }
+
+    footer strong {
+      color: var(--ink);
+    }
+
+    /* Animation */
+
+    .reveal {
+      opacity: 0;
+
+      transform: translateY(25px);
+
+      transition:
+        opacity 0.7s ease,
+        transform 0.7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+
+      transform: none;
+    }
+
+    /* Tablet */
+
+    @media (max-width: 850px) {
+
+      .nav {
+        top: 10px;
+      }
+
+      .navlinks {
+        display: none;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+
+        padding-top: 125px;
+
+        gap: 25px;
+      }
+
+      .hero-visual {
+        min-height: 500px;
+      }
+
+      .photo-main {
+        height: 440px;
+
+        width: 76%;
+      }
+
+      .photo-small {
+        height: 220px;
+      }
+
+      .offer {
+        grid-template-columns: 1fr;
+
+        padding: 35px 25px;
+      }
+
+      .services {
+        grid-template-columns: 1fr;
+      }
+
+      .why {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Mobile */
+
+    @media (max-width: 520px) {
+
+      .hero {
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+
+      section {
+        padding: 70px 20px;
+      }
+
+      h1 {
+        font-size: 4.2rem;
+      }
+
+      .hero-visual {
+        min-height: 430px;
+      }
+
+      .photo-main {
+        height: 390px;
+
+        width: 80%;
+      }
+
+      .photo-small {
+        height: 185px;
+
+        width: 45%;
+
+        border-width: 7px;
+      }
+
+      .sticker {
+        width: 88px;
+        height: 88px;
+
+        font-size: 0.95rem;
+      }
+
+      .actions .btn {
+        width: 100%;
+      }
+
+      .offer {
+        border-radius: 28px;
+      }
+
+      .offer-card {
+        min-height: 240px;
+      }
+
+      .points {
+        grid-template-columns: 1fr;
+      }
+    }
+
+  </style>
+</head>
+
+
+<body>
+
+  <div class="grain"></div>
+
+
+  <!-- NAVIGATION -->
+
+  <nav class="nav">
+
+    <a href="#" class="logo">
+      Mampi<span>♡</span>
+    </a>
+
+    <div class="navlinks">
+      <a href="#offer">Offer</a>
+      <a href="#services">Services</a>
+      <a href="#work">Work</a>
+      <a href="#contact">Contact</a>
+    </div>
+
+    <a href="#contact" class="navbtn">
+      Book Now
+    </a>
+
+  </nav>
+
+
+  <main>
+
+
+    <!-- HERO -->
+
+    <section class="hero">
+
+      <div class="hero-copy reveal">
+
+        <div class="eyebrow">
+          <span class="dot"></span>
+          Photography & Reels
+        </div>
+
+        <h1>
+          Capture<br>
+          your <em>story.</em>
+        </h1>
+
+        <p class="hero-text">
+          Natural moments, stylish shots and fun reels —
+          made to look beautiful on your feed and feel special forever.
+        </p>
+
+        <div class="actions">
+
+          <a href="#offer" class="btn primary">
+            See Shoot Offer ↗
+          </a>
+
+          <a href="#work" class="btn secondary">
+            View Work
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <div class="hero-visual reveal">
+
+        <div class="photo-main"></div>
+
+        <div class="photo-small"></div>
+
+        <div class="sticker">
+          your<br>
+          vibe<br>
+          ♡
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- OFFER -->
+
+    <section id="offer" class="reveal">
+
+      <div class="offer">
+
+        <div>
+
+          <div class="section-kicker">
+            Limited-time shoot offer
+          </div>
+
+          <h2>
+            SHOOT<br>
+            OFFER
+          </h2>
+
+          <div class="price">
+            ₹1,000
+          </div>
+
+          <p>
+            Complete shoot package for your next
+            photos + reels session.
+          </p>
+
+
+          <div class="offer-list">
+
+            <div>
+              <span class="check">✓</span>
+              10 Edited Photos
+            </div>
+
+            <div>
+              <span class="check">✓</span>
+              2 Reels / Short Videos
+            </div>
+
+          </div>
+
+
+          <div class="offer-note">
+            Limited slots available ✦
+          </div>
+
+        </div>
+
+
+        <div class="offer-card">
+
+          <div class="camera">
+            📸
+          </div>
+
+          <strong>
+            ₹1000 Only
+          </strong>
+
+          <span>
+            Photos + Reels • Complete Shoot
+          </span>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- SERVICES -->
+
+    <section id="services">
+
+      <div class="section-head reveal">
+
+        <div class="section-kicker">
+          What I create
+        </div>
+
+        <h2>
+          Made for your moments.
+        </h2>
+
+        <p>
+          Whether it’s your birthday, a new outfit,
+          a portfolio or just a day worth remembering —
+          let’s create something you’ll love.
+        </p>
+
+      </div>
+
+
+      <div class="services">
+
+
+        <article class="service reveal">
+
+          <div class="icon">
+            📸
+          </div>
+
+          <h3>
+            Photoshoots
+          </h3>
+
+          <p>
+            Portraits, lifestyle and creative photos
+            with natural-looking edits.
+          </p>
+
+        </article>
+
+
+        <article class="service reveal">
+
+          <div class="icon">
+            🎬
+          </div>
+
+          <h3>
+            Reels
+          </h3>
+
+          <p>
+            Short-form videos designed for Instagram,
+            memories and your personal vibe.
+          </p>
+
+        </article>
+
+
+        <article class="service reveal">
+
+          <div class="icon">
+            ✨
+          </div>
+
+          <h3>
+            Content Shoots
+          </h3>
+
+          <p>
+            Fresh visual content for Instagram,
+            portfolios, outfits and personal brands.
+          </p>
+
+        </article>
+
+
+      </div>
+
+    </section>
+
+
+
+    <!-- GALLERY -->
+
+    <section id="work">
+
+      <div class="section-head reveal">
+
+        <div class="section-kicker">
+          A little preview
+        </div>
+
+        <h2>
+          Moments, captured.
+        </h2>
+
+        <p>
+          Replace these demo images with Mampi’s
+          actual work before publishing.
+        </p>
+
+      </div>
+
+
+      <div class="gallery reveal">
+
+
+        <div class="shot">
+
+          <img
+            loading="lazy"
+            src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=900&q=85"
+            alt="Fashion portrait"
+          >
+
+        </div>
+
+
+        <div class="shot">
+
+          <img
+            loading="lazy"
+            src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=900&q=85"
+            alt="Lifestyle portrait"
+          >
+
+        </div>
+
+
+        <div class="shot">
+
+          <img
+            loading="lazy"
+            src="https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?auto=format&fit=crop&w=900&q=85"
+            alt="Portrait"
+          >
+
+        </div>
+
+
+        <div class="shot">
+
+          <img
+            loading="lazy"
+            src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=900&q=85"
+            alt="Outdoor portrait"
+          >
+
+        </div>
+
+
+        <div class="shot">
+
+          <img
+            loading="lazy"
+            src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=900&q=85"
+            alt="Fashion content"
+          >
+
+        </div>
+
+
+        <div class="shot">
+
+          <img
+            loading="lazy"
+            src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=900&q=85"
+            alt="Portrait photography"
+          >
+
+        </div>
+
+
+      </div>
+
+    </section>
+
+
+
+    <!-- WHY MAMPI -->
+
+    <section>
+
+      <div class="why reveal">
+
+
+        <div class="why-card">
+
+          <div class="section-kicker">
+            The Mampi touch
+          </div>
+
+          <h3>
+            Simple. Natural. You.
+          </h3>
+
+          <p>
+            No forced poses, no boring frames.
+            The goal is to capture your personality
+            and turn everyday moments into content
+            you’ll actually want to post.
+          </p>
+
+        </div>
+
+
+        <div class="points">
+
+
+          <div class="point">
+
+            <b>
+              ♡ Natural Vibes
+            </b>
+
+            <span>
+              Comfortable direction and candid moments.
+            </span>
+
+          </div>
+
+
+          <div class="point">
+
+            <b>
+              ✦ Stylish Shots
+            </b>
+
+            <span>
+              Creative framing made for your feed.
+            </span>
+
+          </div>
+
+
+          <div class="point">
+
+            <b>
+              📷 High Quality
+            </b>
+
+            <span>
+              Edited photos ready to share.
+            </span>
+
+          </div>
+
+
+          <div class="point">
+
+            <b>
+              ☺ Your Story
+            </b>
+
+            <span>
+              Your personality stays at the centre.
+            </span>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- CONTACT -->
+
+    <section id="contact" class="reveal">
+
+      <div class="cta">
+
+        <div class="section-kicker">
+          Let’s create something cute ♡
+        </div>
+
+        <h2>
+          Ready for your shoot?
+        </h2>
+
+        <p>
+          Have a date, idea or just a vibe in mind?
+          Message Mampi and book your slot.
+        </p>
+
+
+        <!--
+          IMPORTANT:
+          Replace 919999999999 with Mampi's real WhatsApp number.
+        -->
+
+        <a
+          class="btn"
+          href="https://wa.me/919999999999?text=Hi%20Mampi!%20I%20want%20to%20book%20a%20shoot.%20Please%20share%20the%20details."
+          target="_blank"
+          rel="noopener"
+        >
+          WhatsApp to Book ↗
+        </a>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+
+  <!-- FOOTER -->
+
+  <footer>
+
+    <strong>
+      Mampi ♡
+    </strong>
+
+    — Photography & Reels
+
+    <br>
+
+    <span>
+      Capture your moments. Create your story.
+    </span>
+
+  </footer>
+
+
+
+  <!-- JAVASCRIPT -->
+
+  <script>
+
+    const observer = new IntersectionObserver(
+
+      (entries) => {
+
+        entries.forEach((entry) => {
+
+          if (entry.isIntersecting) {
+
+            entry.target.classList.add("visible");
+
+          }
+
+        });
+
+      },
+
+      {
+        threshold: 0.12
+      }
+
+    );
+
+
+    document
+      .querySelectorAll(".reveal")
+      .forEach((element) => {
+
+        observer.observe(element);
+
+      });
+
+  </script>
+
+
+</body>
+</html>
